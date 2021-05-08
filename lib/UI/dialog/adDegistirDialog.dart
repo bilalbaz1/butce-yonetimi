@@ -1,6 +1,5 @@
 import 'package:butce/UI/toast/warningToast.dart';
 import 'package:butce/state/bilgilerState.dart';
-import 'package:butce/state/islemlerState.dart';
 import 'package:butce/UI/toast/successToast.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,13 +26,13 @@ Future<void> adDegistirDialog(BuildContext context) {
           return AlertDialog(
             title: Text("Bilgi Güncelle"),
             content: Wrap(
-              alignment: WrapAlignment.center,
+              //alignment: WrapAlignment.center,
               children: [
                 TextFormField(
                   cursorColor: Colors.blue,
                   initialValue: adCtrl,
                   onChanged: (str) {
-                    setState(() => adCtrl = str);
+                    adCtrl = str;
                   },
                   decoration: InputDecoration(
                       hintText: "Adınız",

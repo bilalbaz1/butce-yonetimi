@@ -42,7 +42,7 @@ class Cuzdan extends StatelessWidget {
                                 BilgilerDurum.BilgilerDolu
                             ? myBilgilerState.getBilgiler.resim
                             : "assets/img/ic_launcher.png",
-                        height: 60,
+                        height: 70,
                         width: 60,
                         fit: BoxFit.cover,
                       ),

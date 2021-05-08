@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 12),
               Text(
-                "sdals nasdjk bsahdkgh sdgaks dkg askdgyd uasydg asuasdgyas u dguıs",
+                "Gider ve gelir takibi, para, finans takibi çok kolay. Sadece birkaç tıklama ile hızlı bir şekilde bir işlem ekleyebilirsiniz.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black54,

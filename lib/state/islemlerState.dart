@@ -74,6 +74,7 @@ class IslemlerState with ChangeNotifier {
       }
 
       notifyListeners();
+      _kontrol();
       return true;
     } else
       return false;

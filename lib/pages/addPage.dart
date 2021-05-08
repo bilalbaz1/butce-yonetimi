@@ -20,6 +20,7 @@ class _AddPageState extends State<AddPage> {
   List<String> kategoriListe = [
     "Market",
     "Ulaşım",
+    "Hobi",
     "Diğer",
   ];
 

@@ -6,3 +6,5 @@ Flutter'da temel widget'lar kullanılmıştır. İki farklı local veritabanı (
 This project is a starting point for a Flutter application.
 
 [Daha Fazlası](https://www.bilalbaz.com/p/flutter-butce-yonetimi-uygulamasi)
+
+![image](https://www.bilalbaz.com/assets/img/Screenshot.png)

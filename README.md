@@ -1,7 +1,7 @@
 # Bütçe Yönetimi
 
 Bütçe yönetimi uygulaması.
-Flutter'da temel widget'lar kullanılmıştır. İki farklı local veritabanı (sqfli, hive) kullanıldı. Provider kullanıldı.
+Flutter'da temel widget'lar kullanılmıştır. İki farklı local veritabanı (sqLite, hive) kullanıldı. Provider kullanıldı.
 
 This project is a starting point for a Flutter application.
 

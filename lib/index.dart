@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:butce/UI/appBarWidget.dart';
 import 'package:butce/UI/bottomBar.dart';
-import 'package:butce/UI/drawerBar.dart';
 import 'package:butce/pages/addPage.dart';
 import 'package:butce/state/bottomBarState.dart';
 import 'package:butce/view/cuzdan.dart';

@@ -1,18 +1,22 @@
 import 'package:butce/UI/cuzdan/islemCard.dart';
 import 'package:butce/UI/dialog/adDegistirDialog.dart';
 import 'package:butce/model/islemlerModel.dart';
+import 'package:butce/pages/dovizSayfasi.dart';
 import 'package:butce/pages/hakkinda.dart';
 import 'package:butce/pages/tumHarcamalar.dart';
 import 'package:butce/pages/tumKazanclar.dart';
 import 'package:butce/state/bilgilerState.dart';
 import 'package:butce/state/islemlerState.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:animations/animations.dart';
 
 class Profil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final transitionType = ContainerTransitionType.fade;
     final myBilgilerState = Provider.of<BilgilerState>(context);
     final myIslemlerState = Provider.of<IslemlerState>(context);
 
@@ -51,14 +55,9 @@ class Profil extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          GestureDetector(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => TumHarcamalar(),
-              ),
-            ),
-            child: card(
+          OpenContainer(
+            openBuilder: (context, _) => TumHarcamalar(),
+            closedBuilder: (context, VoidCallback openContainer) => card(
               context: context,
               title: "Harcanan TL",
               number: myIslemlerState.getGider.toInt(),
@@ -67,6 +66,27 @@ class Profil extends StatelessWidget {
                   ? myIslemlerState.getHarcananIslemler[0]
                   : null,
             ),
+            // CardWidget(
+            //   index: 1,
+            //   onClicked: openContainer,
+            // ),
+            // child: GestureDetector(
+            //   onTap: () => Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => ,
+            //     ),
+            //   ),
+            //   child: card(
+            //     context: context,
+            //     title: "Harcanan TL",
+            //     number: myIslemlerState.getGider.toInt(),
+            //     pngImg: "money",
+            //     sonIslemModel: myIslemlerState.getHarcananIslemler.length > 0
+            //         ? myIslemlerState.getHarcananIslemler[0]
+            //         : null,
+            //   ),
+            // ),
           ),
           SizedBox(height: 10),
           Divider(),
@@ -91,31 +111,44 @@ class Profil extends StatelessWidget {
           SizedBox(height: 10),
           Divider(),
           SizedBox(height: 10),
-          GestureDetector(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => UygulamaHakkinda(),
-              ),
+          OpenContainer(
+            middleColor: Colors.red,
+            closedColor: Colors.transparent,
+            openColor: Colors.blue,
+            transitionType: transitionType,
+            transitionDuration: Duration(seconds: 1),
+            closedBuilder: (context, closeContainer) => card(
+              context: context,
+              title: "Döviz",
+              pngImg: "doviz",
+              icon: Icons.arrow_right_outlined,
+              sonIslemModel: null,
             ),
-            child: Card(
-              elevation: 5.0,
-              color: Colors.orange,
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  "Uygulama Hakkında",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontFamily: "kalin",
-                  ),
+            openBuilder: (context, openBuilder) => DovizSayfasi(),
+          ),
+          SizedBox(height: 10),
+          Divider(),
+          SizedBox(height: 10),
+          OpenContainer(
+            closedColor: Colors.orange,
+            transitionType: transitionType,
+            transitionDuration: Duration(seconds: 5),
+            openBuilder: (context, _) => UygulamaHakkinda(),
+            closedBuilder: (context, _) => Container(
+              alignment: Alignment.center,
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              child: Text(
+                "Uygulama Hakkında",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontFamily: "kalin",
                 ),
               ),
             ),
           ),
+          SizedBox(height: 30),
         ],
       ),
     );
@@ -124,10 +157,11 @@ class Profil extends StatelessWidget {
   Widget card({
     @required BuildContext context,
     @required String title,
-    @required int number,
+    int number,
     Color color: Colors.white,
     @required String pngImg,
     IslemlerModel sonIslemModel,
+    IconData icon,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,14 +185,16 @@ class Profil extends StatelessWidget {
                 fontFamily: "kalin",
               ),
             ),
-            trailing: Text(
-              number.toString(),
-              style: TextStyle(
-                color: Colors.purple.shade600,
-                fontSize: 20,
-                fontFamily: "kalin",
-              ),
-            ),
+            trailing: number == null
+                ? Icon(icon)
+                : Text(
+                    number.toString(),
+                    style: TextStyle(
+                      color: Colors.purple.shade600,
+                      fontSize: 20,
+                      fontFamily: "kalin",
+                    ),
+                  ),
           ),
         ),
         if (sonIslemModel != null)

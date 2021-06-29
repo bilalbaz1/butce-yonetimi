@@ -44,7 +44,7 @@ class UygulamaHakkinda extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                      "tarafından geliştirilmiştir. Açık kaynak kodlu ve tamamen ücretsizdir.",
+                      "tarafından geliştirilmiştir. Açık kaynak kodlu ve ücretsizdir.",
                   style: TextStyle(
                     color: Colors.indigo,
                     fontSize: 18.5,

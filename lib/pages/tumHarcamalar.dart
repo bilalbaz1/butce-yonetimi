@@ -1,6 +1,7 @@
 import 'package:butce/UI/appBarWidget.dart';
 import 'package:butce/UI/cuzdan/islemCard.dart';
 import 'package:butce/state/islemlerState.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

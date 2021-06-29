@@ -4,11 +4,14 @@ import 'package:butce/pages/landingPage.dart';
 import 'package:butce/state/bilgilerState.dart';
 import 'package:butce/state/bottomBarState.dart';
 import 'package:butce/state/islemlerState.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
+  await Firebase.initializeApp();
   runApp(
     MyApp(),
   );
